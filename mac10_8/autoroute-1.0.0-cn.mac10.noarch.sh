@@ -18,27 +18,26 @@ export LANG
 ################ Var Setting ################
 
 HomeDir="/tmp/autoroute"
-#BasePkg=" wget bc coreutils "
 Mytype=$1
 Mygw=$2
 
 ################ Func Define ################ 
 function _info_msg() {
 _header
-echo -e " |                                                                |"
-echo -e " |                 Thank you for use autoroute(cn)!               |"
-echo -e " |                                                                |"
-echo -e " |                         Version: 1.0                           |"
-echo -e " |                                                                |"
-echo -e " |                     http://www.idcsrv.com                      |"
-echo -e " |                                                                |"
-echo -e " |                   Author:翅儿学飞(chier xuefei)                |"
-echo -e " |                      Email:myregs@126.com                      |"
-echo -e " |                         QQ:1810836851                          |"
-echo -e " |                         QQ群:61749648                          |"
-echo -e " |                                                                |"
-echo -e " |          Hit [ENTER] to continue or ctrl+c to exit             |"
-echo -e " |                                                                |"
+echo " |                                                                |"
+echo " |                 Thank you for use autoroute(cn)!               |"
+echo " |                                                                |"
+echo " |                         Version: 1.0                           |"
+echo " |                                                                |"
+echo " |                     http://www.idcsrv.com                      |"
+echo " |                                                                |"
+echo " |                   Author:翅儿学飞(chier xuefei)                |"
+echo " |                      Email:myregs@126.com                      |"
+echo " |                         QQ:1810836851                          |"
+echo " |                         QQ群:61749648                          |"
+echo " |                                                                |"
+echo " |          Hit [ENTER] to continue or ctrl+c to exit             |"
+echo " |                                                                |"
 printf " o----------------------------------------------------------------o\n"	
  read entcs 
 clear
@@ -46,18 +45,18 @@ clear
 
 function _end_msg() {
 _header
-echo -e " |                                                                |"
-echo -e " |                 Thank you for use autoroute(cn)!               |"
-echo -e " |                                                                |"
-echo -e " |                    The route has been set!                     |"
-echo -e " |                                                                |"
-echo -e " |                     http://www.idcsrv.com                      |"
-echo -e " |                                                                |"
-echo -e " |                   Author:翅儿学飞(chier xuefei)                |"
-echo -e " |                      Email:myregs@126.com                      |"
-echo -e " |                         QQ:1810836851                          |"
-echo -e " |                         QQ群:61749648                          |"
-echo -e " |                                                                |"
+echo " |                                                                |"
+echo " |                 Thank you for use autoroute(cn)!               |"
+echo " |                                                                |"
+echo " |                    The route has been set!                     |"
+echo " |                                                                |"
+echo " |                     http://www.idcsrv.com                      |"
+echo " |                                                                |"
+echo " |                   Author:翅儿学飞(chier xuefei)                |"
+echo " |                      Email:myregs@126.com                      |"
+echo " |                         QQ:1810836851                          |"
+echo " |                         QQ群:61749648                          |"
+echo " |                                                                |"
 printf " o----------------------------------------------------------------o\n"
 }
 
@@ -74,7 +73,7 @@ clear
 _info_msg
 
 if [ `id -u` != "0" ]; then
-echo -e "You need to be be the root user to run this script.\nWe also suggest you use a direct root login, not su -, sudo etc..."
+echo "You need to be be the root user to run this script.\nWe also suggest you use a direct root login, not su -, sudo etc..."
 exit 1
 fi
 
@@ -112,9 +111,9 @@ log2($cnt)
 EOF
 )
 if [ "$masknum"X == "32"X ];then
-    route ${Mytype} -host ${ip} gw ${Mygw}
+    route ${Mytype} -host ${ip} ${Mygw}
 else
-    route ${Mytype} -net ${ip}/${masknum} gw ${Mygw}
+    route ${Mytype} -net ${ip}/${masknum} ${Mygw}
 fi
 done
 
