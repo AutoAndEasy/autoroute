@@ -42,10 +42,10 @@ if errorlevel 1 goto addroute
 
 :addroute
 set /p gateway=Please Input Your GateWay:
-echo. > cmdlist
+if exist "cmdlist" del cmdlist
 echo ****  Route Table Adding ****
-for /f %%a in (cn.iplist) do (
-echo add %%a %gateway% METRIC default IF default >> cmdlist
+for /f "tokens=1,2,3 delims= " %%a in (cn.iplist) do (
+echo add %%a %%b %%c %gateway% METRIC default IF default >> cmdlist
 )
 rundll32.exe cmroute.dll,SetRoutes /STATIC_FILE_NAME cmdlist /DONT_REQUIRE_URL /IPHLPAPI_ACCESS_DENIED_OK
 echo ****  Route Add Successfully! ****
@@ -53,10 +53,11 @@ timeout 3 > nul
 goto menu
 
 :delroute
-echo. > cmdlist
+set /p gateway=Please Input Your GateWay:
+if exist "cmdlist" del cmdlist
 echo ****  Route Table Deleting ****
-for /f %%a in (cn.iplist) do (
-echo delete %%a %gateway% METRIC default IF default >> cmdlist
+for /f "tokens=1,2,3 delims= " %%a in (cn.iplist) do (
+echo delete %%a %%b %%c %gateway% METRIC default IF default >> cmdlist
 ) 
 rundll32.exe cmroute.dll,SetRoutes /STATIC_FILE_NAME cmdlist /DONT_REQUIRE_URL /IPHLPAPI_ACCESS_DENIED_OK
 echo ****  Route Delete Successfully! ****
